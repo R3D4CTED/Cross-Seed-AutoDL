@@ -15,9 +15,17 @@ Copy exact string for the tracker that appears in the torznab feed URL in Jacket
 
 Run `pip3 install -r requirements.txt` to install the required libraries
 
+Set the required variables in `dir_climber.py`.
+
 
 # Usage
 
+## Directory Climber:
+	dir_climber.py
+
+Literally that's it!
+
+## CrossSeedAutoDL
 	usage: CrossSeedAutoDL.py [-h] [-p] [-d delay] -i input_path -s save_path -u
 	                          jackett_url -k api_key [-t trackers]
 	                          [--ignore-history] [--strict-size]
