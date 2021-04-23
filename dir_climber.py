@@ -14,18 +14,19 @@ import shutil
 # Separate edition for Music/Anime/Games/BDMVs soonTM
 
 # configs (remember to set them before start)
-input_dir = r"A:/files/" # set this to root dir of where you want to start looking. 
+input_dir = r"Q:/Movie/Remux (4k)" # set this to root dir of where you want to start looking. 
 jackett_url = "http://localhost:9117" # set to url:port 
-jackett_api_key = "xxxxxxxxxxxxxxxxxxxxx" # jackett api key
-trackers = "tracker_a,tracker_b" # set this to a comma-separated list of trackers(no spaces)
+jackett_api_key = "8kfigcoxsagdtr6mdn9zdbmb5izs87gu" # jackett api key
+trackers = "beyond-hd,blutopia" # set this to a comma-separated list of trackers(no spaces)
 
-qbittorrent_url = "http://localhost:6969" # URL of qbittorrent webui
+qbittorrent_url = "http://localhost:6989" # URL of qbittorrent webui
 qbittorrent_user = "admin" # username
 qbittorrent_pass = "adminadmin" # password
 
 # nuking the temp directory in case it already exists
-os.mkdir(f"./temp")
 shutil.rmtree(f"./temp")
+os.mkdir(f"./temp")
+
 
 
 # initialise the qbittorrent object with data given
@@ -48,11 +49,14 @@ for subdir, dirs, files in os.walk(input_dir):
         except:
             print(f"./temp/{file} already exists.")
 
-        command = f"python CrossSeedAutoDL.py -i \"{os.path.join(subdir)}\" -s \"./temp/{file}\" -u \"{jackett_url}\" -k \"{jackett_api_key}\" -t {trackers} --ignore-history --parse-dir"
+        command = f"python CrossSeedAutoDL.py -i \"{os.path.join(subdir)}\" -s \"./temp/{file}\" -u \"{jackett_url}\" -k \"{jackett_api_key}\" -t {trackers} --ignore-history"
         print(command)
         subprocess.run(command, shell=True) # running the command
         print(f"File Path: {os.path.join(subdir, file)}") # printing path to file
         for torrent in os.scandir(f'./temp/{file}'):
             # iterating through .torrents and adding the file to client, with respective path set
             # Prints "Ok." if the file is added fine, "Fails." if the file addition failed.
-            print(qb_client.torrents_add(torrent_files=f"./temp/{file}/{torrent.name}", save_path=os.path.join(subdir), is_skip_checking=True, is_paused=True, content_layout="NoSubfolder", tags="CrossSeedAutoDL"))
+            try:
+                print(qb_client.torrents_add(torrent_files=f"./temp/{file}/{torrent.name}", save_path=os.path.join(subdir), is_skip_checking=True, is_paused=True, content_layout="NoSubfolder", tags="CrossSeedAutoDL"))
+            except:
+                continue
