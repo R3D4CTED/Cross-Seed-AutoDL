@@ -1,3 +1,7 @@
 /testfiles/**
 *.json
 *.log
+/.vscode
+/data
+/temp
+test.py
