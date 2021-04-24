@@ -8,7 +8,7 @@ import shutil
 # "Snake through" the folders (if any) of the given location and then
 # run CrossSeedAutoDL for each, and use the qbittorrent API to add the torrent with
 # the location set to the end location automatically. Built for situations when folders
-# are sorted and hence, not cross-seedable.
+# are sorted and hence, not cross-seedable directly.
 
 # This is more suitable for torrents where there are few files, like movies, or archives.
 # Separate edition for Music/Anime/Games/BDMVs soonTM
