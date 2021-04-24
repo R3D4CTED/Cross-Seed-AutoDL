@@ -16,10 +16,10 @@ import shutil
 # configs (remember to set them before start)
 input_dir = r"Q:/Movie/Remux (4k)" # set this to root dir of where you want to start looking. 
 jackett_url = "http://localhost:9117" # set to url:port 
-jackett_api_key = "8kfigcoxsagdtr6mdn9zdbmb5izs87gu" # jackett api key
-trackers = "beyond-hd,blutopia" # set this to a comma-separated list of trackers(no spaces)
+jackett_api_key = "xxxxxxxxxxxxxxxxx" # jackett api key
+trackers = "tracker_a,tracker_b" # set this to a comma-separated list of trackers(no spaces)
 
-qbittorrent_url = "http://localhost:6989" # URL of qbittorrent webui
+qbittorrent_url = "http://localhost:6969" # URL of qbittorrent webui
 qbittorrent_user = "admin" # username
 qbittorrent_pass = "adminadmin" # password
 
