@@ -57,6 +57,6 @@ for subdir, dirs, files in os.walk(input_dir):
             # iterating through .torrents and adding the file to client, with respective path set
             # Prints "Ok." if the file is added fine, "Fails." if the file addition failed.
             try:
-                print(qb_client.torrents_add(torrent_files=f"./temp/{file}/{torrent.name}", save_path=os.path.join(subdir), is_skip_checking=True, is_paused=True, content_layout="NoSubfolder", tags="CrossSeedAutoDL"))
+                print(qb_client.torrents_add(torrent_files=f"./temp/{file}/{torrent.name}", save_path=os.path.join(subdir), is_skip_checking=True, is_paused=False, content_layout="NoSubfolder", tags="CrossSeedAutoDL"))
             except:
                 continue
