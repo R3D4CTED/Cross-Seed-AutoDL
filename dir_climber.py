@@ -49,7 +49,7 @@ for subdir, dirs, files in os.walk(input_dir):
         except:
             print(f"./temp/{file} already exists.")
 
-        command = f"python CrossSeedAutoDL.py -i \"{os.path.join(subdir)}\" -s \"./temp/{file}\" -u \"{jackett_url}\" -k \"{jackett_api_key}\" -t {trackers} --ignore-history -d 1"
+        command = f"python CrossSeedAutoDL.py -i \"{os.path.join(subdir)}\" -s \"./temp/{file}\" -u \"{jackett_url}\" -k \"{jackett_api_key}\" -t {trackers} --ignore-history -d 5 -p"
         print(command)
         subprocess.run(command, shell=True) # running the command
         print(f"File Path: {os.path.join(subdir, file)}") # printing path to file
